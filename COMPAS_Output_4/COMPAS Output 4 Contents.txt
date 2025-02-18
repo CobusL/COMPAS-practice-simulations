@@ -1,0 +1,46 @@
+# COMPAS_Output_4 Contents&DataSet
+In [5]: import h5py
+   ...: import pandas as pd
+   ...: import matplotlib.pyplot as plt
+   ...: 
+   ...: # Open the HDF5 file
+   ...: with h5py.File('COMPAS_Output_4.h5', 'r') as f:
+   ...:     # List all groups and datasets
+   ...:     print("Keys: %s" % f.keys())
+   ...: 
+   ...:     # List the contents of the 'BSE_System_Parameters' group
+   ...:     group = f['BSE_System_Parameters']
+   ...:     print("Contents of 'BSE_System_Parameters': %s" % group.keys())
+   ...: 
+   ...:     # Replace 'dataset_name' with the actual name of the dataset within the group
+   ...:     data = group['Eccentricity@ZAMS'][:]
+   ...: 
+   ...: # Convert the data to a pandas DataFrame (if applicable)
+   ...: df = pd.DataFrame(data, columns=['Eccentricity@ZAMS'])
+   ...: 
+   ...: # Display the first few rows of the DataFrame
+   ...: print(df.head())
+   ...: 
+   ...: # Example: Plotting data (if applicable)
+   ...: plt.figure(figsize=(10, 6))
+   ...: plt.plot(df.index, df['Eccentricity@ZAMS'])
+   ...: plt.title('Eccentricity at ZAMS')
+   ...: plt.xlabel('Index')
+   ...: plt.ylabel('Eccentricity')
+   ...: plt.show()
+Keys: <KeysViewHDF5 ['BSE_Common_Envelopes', 'BSE_RLOF', 'BSE_Supernovae', 'BSE_Switch_Log', 'BSE_System_Parameters', 'Run_Details']>
+Contents of 'BSE_System_Parameters': <KeysViewHDF5 ['CH_on_MS(1)', 'CH_on_MS(2)', 'Eccentricity@ZAMS', 'Equilibrated_At_Birth', 'Error', 'Evolution_Status', 'Mass@ZAMS(1)', 'Mass@ZAMS(2)', 'Merger', 'Merger_At_Birth', 'Metallicity@ZAMS(1)', 'Metallicity@ZAMS(2)', 'Omega@ZAMS(1)', 'Omega@ZAMS(2)', 'PO_CE_Alpha', 'PO_LBV_Factor', 'PO_Sigma_Kick_CCSN_BH', 'PO_Sigma_Kick_CCSN_NS', 'PO_Sigma_Kick_ECSN', 'PO_Sigma_Kick_USSN', 'PO_WR_Factor', 'Record_Type', 'SEED', 'SN_Kick_Magnitude_Random_Number(1)', 'SN_Kick_Magnitude_Random_Number(2)', 'SemiMajorAxis@ZAMS', 'Stellar_Type(1)', 'Stellar_Type(2)', 'Stellar_Type@ZAMS(1)', 'Stellar_Type@ZAMS(2)', 'Unbound']>
+   Eccentricity@ZAMS
+0                0.0
+1                0.0
+2                0.0
+3                0.0
+4                0.0
+Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+qt.glx: qglx_findConfig: Failed to finding matching FBConfig for QSurfaceFormat(version 2.0, options QFlags<QSurfaceFormat::FormatOption>(), depthBufferSize -1, redBufferSize 1, greenBufferSize 1, blueBufferSize 1, alphaBufferSize -1, stencilBufferSize -1, samples -1, swapBehavior QSurfaceFormat::SingleBuffer, swapInterval 1, colorSpace QSurfaceFormat::DefaultColorSpace, profile  QSurfaceFormat::NoProfile)
+No XVisualInfo for format QSurfaceFormat(version 2.0, options QFlags<QSurfaceFormat::FormatOption>(), depthBufferSize -1, redBufferSize 1, greenBufferSize 1, blueBufferSize 1, alphaBufferSize -1, stencilBufferSize -1, samples -1, swapBehavior QSurfaceFormat::SingleBuffer, swapInterval 1, colorSpace QSurfaceFormat::DefaultColorSpace, profile  QSurfaceFormat::NoProfile)
+Falling back to using screens root_visual.
+qt.glx: qglx_findConfig: Failed to finding matching FBConfig for QSurfaceFormat(version 2.0, options QFlags<QSurfaceFormat::FormatOption>(), depthBufferSize -1, redBufferSize 1, greenBufferSize 1, blueBufferSize 1, alphaBufferSize -1, stencilBufferSize -1, samples -1, swapBehavior QSurfaceFormat::SingleBuffer, swapInterval 1, colorSpace QSurfaceFormat::DefaultColorSpace, profile  QSurfaceFormat::NoProfile)
+No XVisualInfo for format QSurfaceFormat(version 2.0, options QFlags<QSurfaceFormat::FormatOption>(), depthBufferSize -1, redBufferSize 1, greenBufferSize 1, blueBufferSize 1, alphaBufferSize -1, stencilBufferSize -1, samples -1, swapBehavior QSurfaceFormat::SingleBuffer, swapInterval 1, colorSpace QSurfaceFormat::DefaultColorSpace, profile  QSurfaceFormat::NoProfile)
+Falling back to using screens root_visual.
+
